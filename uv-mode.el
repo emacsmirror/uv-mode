@@ -100,5 +100,17 @@ This looks for a .venv directory in the project root."
     (setq mode-line-misc-info
           (delete uv-mode-mode-line-format mode-line-misc-info))))
 
+;;;###autoload
+(defun uv-mode-auto-activate-hook ()
+  "Automatically activate UV mode and the project's virtualenv if available.
+This function checks for a .venv directory in the project root. If found,
+it activates that virtualenv for the current buffer. This is especially
+useful when automatically run via python-mode-hook."
+  (when (derived-mode-p 'python-mode)
+    (let ((project-root (uv-mode-root)))
+      (when project-root
+        (uv-mode 1)  ; Enable uv-mode
+        (uv-mode-set)))))
+
 (provide 'uv-mode)
 ;;; uv-mode.el ends here
