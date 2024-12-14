@@ -84,7 +84,7 @@ This looks for a .venv directory in the project root."
     (define-key map (kbd "C-c C-s") 'uv-mode-set)
     (define-key map (kbd "C-c C-u") 'uv-mode-unset)
     map)
-  "Keymap for uv-mode.")
+  "Keymap for `uv-mode'.")
 
 ;;;###autoload
 (define-minor-mode uv-mode
@@ -96,7 +96,7 @@ This looks for a .venv directory in the project root."
   (if uv-mode
       (if (executable-find "uv")
           (add-to-list 'mode-line-misc-info uv-mode-mode-line-format)
-        (error "uv-mode: uv executable not found."))
+        (error "Uv-mode: uv executable not found"))
     (setq mode-line-misc-info
           (delete uv-mode-mode-line-format mode-line-misc-info))))
 
@@ -105,7 +105,7 @@ This looks for a .venv directory in the project root."
   "Automatically activate UV mode and the project's virtualenv if available.
 This function checks for a .venv directory in the project root. If found,
 it activates that virtualenv for the current buffer. This is especially
-useful when automatically run via python-mode-hook."
+useful when automatically run via `python-mode-hook'."
   (when (derived-mode-p 'python-mode)
     (let ((project-root (uv-mode-root)))
       (when project-root
