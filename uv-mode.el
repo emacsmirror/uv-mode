@@ -43,6 +43,7 @@
     (when (uv-mode-version)
       (concat "UV:" (uv-mode-version) " ")))
   "How `uv-mode' will indicate the current virtual environment in the mode line."
+  :type 'string
   :group 'uv)
 
 (defun uv-mode-version ()
