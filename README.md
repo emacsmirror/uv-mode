@@ -20,7 +20,7 @@ Key features include:
 - [uv](https://github.com/astral-sh/uv) installed and available in your PATH
 - pythonic.el package
 
-### Via MELPA (Coming Soon)
+### Via MELPA
 
 ```elisp
 (use-package uv-mode
