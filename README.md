@@ -1,5 +1,7 @@
 # UV Mode for Emacs
 
+[![MELPA](https://melpa.org/packages/uv-mode-badge.svg)](https://melpa.org/#/uv-mode)
+
 UV Mode provides seamless integration between [uv](https://github.com/astral-sh/uv) (the Python package installer) and Emacs python-mode. Unlike pyenv-mode which manages multiple Python versions, UV Mode focuses on managing project-specific virtual environments created by uv.
 
 ## Features
