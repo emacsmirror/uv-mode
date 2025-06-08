@@ -68,10 +68,12 @@ This looks for a .venv directory in the project root."
   (interactive)
   (let ((venv-path (uv-mode-full-path (uv-mode-root))))
     (when venv-path
-      (add-to-list 'exec-path (expand-file-name "bin" venv-path))
-      (pythonic-activate venv-path)
-      (setenv "VIRTUAL_ENV" venv-path)
-      (force-mode-line-update))))
+      (let ((bin-dir (expand-file-name "bin" venv-path)))
+	(add-to-list 'exec-path bin-dir)
+	(setenv "PATH" (concat bin-dir path-separator (getenv "PATH")))
+	(pythonic-activate venv-path)
+	(setenv "VIRTUAL_ENV" venv-path)
+	(force-mode-line-update)))))
 
 ;;;###autoload
 (defun uv-mode-unset ()
